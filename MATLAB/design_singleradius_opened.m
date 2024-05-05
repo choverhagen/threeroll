@@ -15,8 +15,6 @@ function [residual] = design_singleradius_opened(x)
 
     r1 = ecc_groove*ir;    % x(2) is the eccentricity = r1/ir
 
-%    alpha=alpha_groove;
-
     s = ir/10;
     r2 = s;
     

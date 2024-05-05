@@ -44,7 +44,6 @@ function [residual] = design_singleradius(x)
     % calculate filling ratio
     fg = b1/wof;
     
-
     realepsa = (A0-A1)/A0;
 
     fehlera = (A1-a_reference)/a_reference;
@@ -52,10 +51,8 @@ function [residual] = design_singleradius(x)
 
     residual = sqrt(fehlera^2 + fehler_fg^2);
 
-
     the_real_a = A1;
     the_real_fg = fg;
-
 
     fprintf('IR = %8.3f mm     R1 = %8.3f mm     fillf = %8.6f    epsa = %8.6f      resid = %8.3f \n',[ir,r1,fg,realepsa,residual]);
 
@@ -64,6 +61,5 @@ function [residual] = design_singleradius(x)
     if (plotme)
           plot_stich(kentry,kgroove,kexit,kgroove,1);
     end
-
 
 end

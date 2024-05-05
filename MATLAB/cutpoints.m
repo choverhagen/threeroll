@@ -1,7 +1,6 @@
 function [cp] = cutpoints(k1,k2)
   
-%!----------------------------------------!
-%
+
 % Calculate cutpoints of two contours
 
 n1=k1.anz_punkte;

@@ -39,15 +39,14 @@ function calc_single_groove_opened(d0,epsa,dnom,ff,ecc)
     %initial_ecc = initial_r1/initial_ir;
     initial_alpha = 60;
 
-    ecc_groove = ecc;
-
+    % set the initial conditions for the iteration
     x0=[initial_ir,initial_alpha];
    
     % set the bounds of the parameters    
     LB = [0 10];      % lower bound
     UB = [d0/2 90];   % upper bound
 
-
+    % do the iteration
     x = fminsearchbnd(@design_singleradius_opened,x0,LB,UB);
 
     % find contact contour and bite angle
@@ -55,6 +54,6 @@ function calc_single_groove_opened(d0,epsa,dnom,ff,ecc)
 
     plot_stich(kentry,kgroove,kexit,kcontact,2)
     ax= gca;
-    ax.FontSize = 28;
+    ax.FontSize = 16
     
 end

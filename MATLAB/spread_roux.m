@@ -1,6 +1,6 @@
 function [b1] = spread_roux(h0,h1,b0,dw)
 
-%
+
 % Roux spread calculation for the 2RP
 
   dh = h0-h1;

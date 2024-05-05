@@ -47,14 +47,12 @@ function [residual] = design_flat(x)
     fehlera = (A1-a_reference)/a_reference;
     fehler_fg = (fg-fillgrade_reference)/fillgrade_reference;
 
-    %residual = sqrt(fehlera^2 + fehler_fg^2);
     residual = abs(fehlera);
 
     the_real_a = A1;
     the_real_fg = fg;
 
-
-    fprintf('IR = %8.3f mm     R1 = %8.3f mm     fillf = %8.6f    epsa = %8.6f      resid = %8.3f \n',[ir,0,fg,realepsa,residual]);
+    fprintf('IR = %8.3f mm     fillf = %8.6f    epsa = %8.6f      resid = %8.3f \n',[ir,fg,realepsa,residual]);
 
     % if plotme is set, output groove after each iteration (reduces
     % performance!)

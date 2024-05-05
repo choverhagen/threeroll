@@ -22,7 +22,7 @@ k1_with_spread = k1;
 k1_with_spread.xy(:,:) = k1.xy(:,:)*beta;
 cpbreit=cutpoints(k1_with_spread,k2);
 
-% Baue Austrittskontur zusammen
+% Assemble exit section
 k3=k1;
 k3.xy=[k1_with_spread.xy(1:cpbreit(1,3),:);...
        cpbreit(1,1:2);
@@ -37,6 +37,7 @@ k3.xy=[k1_with_spread.xy(1:cpbreit(1,3),:);...
        k2.xy(cpbreit(5,4)+1:cpbreit(6,4),:);...
        cpbreit(6,1:2);
        k1_with_spread.xy(cpbreit(6,3)+1:n1,:)];
+
 k3.anz_punkte=size(k3.xy,1);   
 
 end
