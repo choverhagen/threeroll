@@ -2,15 +2,16 @@ function calc_single_groove(d0,epsa,dnom,ff)
 %
 % three roll design model
 %
-% calculate data for one combination
-%
+%  design a single-radius groove for a round entry
+%  at a given pass reduction and filling ratio
 %
 %   d0:     Initial diameter in mm
-%   epsa:   Relative Reduction
+%   epsa:   Relative Reduction   epsa=(A0-A1)/A0
 %   dnom:   Nominal Roll Diameter
 %   ff:     Groove filling ratio
 %
 %   by Christian Overhagen <christian.overhagen@uni-due.de>
+%
 
     global kentry dnom
     global a_reference fillgrade_reference

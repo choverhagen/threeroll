@@ -2,8 +2,9 @@ function calc_single_groove_flat(d0,epsa,dnom,ff)
 %
 % three roll design model
 %
-% calculate data for one combination
-%
+%  design a flat groove for a round entry
+%  at a given pass reduction 
+% 
 %
 %   d0:     Initial diameter in mm
 %   epsa:   Relative Reduction

@@ -2,7 +2,10 @@ function calc_single_groove_opened(d0,epsa,dnom,ff,ecc)
 %
 % three roll design model
 %
-% calculate data for one combination
+%  design a single-radius opened groove for a round entry
+%  at a given pass reduction, eccentricity and filling ratio
+%  
+%  the groove size and angle are found by optimization
 %
 %
 %   d0:     Initial diameter in mm
@@ -17,7 +20,9 @@ function calc_single_groove_opened(d0,epsa,dnom,ff,ecc)
     global kexit kgroove
     global alfa0
     global ecc_groove
-    %global alpha_groove
+
+    % make the eccentricity global
+    ecc_groove = ecc;
 
     % generate the entry section
     kentry = initial_round(d0,100);
@@ -36,7 +41,6 @@ function calc_single_groove_opened(d0,epsa,dnom,ff,ecc)
     % guess initial conditions for the groove
     initial_ir = d0/2*0.8;
     initial_r1 = initial_ir*5;
-    %initial_ecc = initial_r1/initial_ir;
     initial_alpha = 60;
 
     % set the initial conditions for the iteration
