@@ -12,6 +12,7 @@ function calc_single_groove_opened(d0,epsa,dnom,ff,ecc)
 %   epsa:   Relative Reduction
 %   dnom:   Nominal Roll Diameter
 %   ff:     Groove filling ratio
+%   ecc:    eccentricity ratio ecc = 2*r1/d
 
     global kentry dnom
     global a_reference fillgrade_reference

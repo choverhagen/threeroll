@@ -1,4 +1,4 @@
-function pass_sequence(d0,de,N,Z)
+function pass_sequence(d0,de,N,Z,dnom,ff)
 
     global a_reference fillgrade_reference
     global kentry kgroove kexit  dnom
@@ -8,22 +8,24 @@ function pass_sequence(d0,de,N,Z)
     % de: final diameter
     % N:  number of passes
     % Z:  degression parameter
+    % dnom: nominal roll diameter for all passes
+    % ff: filling ratio for all passes
     %.................................
 
-    ff=0.95;
-    dnom=400;
-
     % generate entry section
-    kentry = anstich_rund(d0,100);
-    A0 = flaecheninhalt(kentry);
+    kentry = initial_round(d0,100);
+    A0 = area(kentry);
     
-    % calculate cross
+    % calculate cross section on exit
     Ae = pi/4*de^2;
 
+    % the total elongation
     lambda_total = A0/Ae;
 
+    % the mean elongation per pass
     lambda_m = lambda_total^(1/N);
 
+    % design the degressive elongation distribution
     for i=1:N
         y = (N+1)/2-i;
         lambda = Z^y * lambda_m;
@@ -35,15 +37,15 @@ function pass_sequence(d0,de,N,Z)
         end
     end
 
-    winkel = 0;
+    angle = 0;
 
     initialpoly = polyshape(kentry.xy(:,1), kentry.xy(:,2));
 
     % calculate single-radius grooves based on area and filling criteria 
     for i=1:N
 
-        if (winkel>0)
-            kentry = drehen(kentry,winkel);
+        if (angle>0)
+            kentry = rotate_contour(kentry,angle);
         end
 
         a_reference=A_(i);
@@ -77,8 +79,8 @@ function pass_sequence(d0,de,N,Z)
                  
 
         % rotate back
-        if (winkel>0)
-            kexit=drehen(kexit,-winkel);
+        if (angle>0)
+            kexit=rotate_contour(kexit,-angle);
         end
 
         exitpoly(i) = polyshape(kexit.xy(:,1), kexit.xy(:,2));
@@ -87,7 +89,7 @@ function pass_sequence(d0,de,N,Z)
         kentry=kexit;
 
         % toggle the angle
-        winkel = abs(winkel-180);
+        angle = abs(angle-180);
 
     end
 
