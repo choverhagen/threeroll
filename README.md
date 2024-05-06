@@ -3,8 +3,12 @@ Numerical calculation of roll pass designs for three-roll rolling mills
 -----------------------------------------------------------------------
 
 Presented at AISTech 2024, Columbus/OH, USA
+
+
 by Christian Overhagen
+
 University of Duisburg-Essen
+
 Chair of Metallurgy and Metal Forming
 
 
