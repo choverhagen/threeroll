@@ -9,40 +9,43 @@ Chair of Metallurgy and Metal Forming
 
 
 
-The most important scripts are:
 
 A) The groove generation scripts
 --------------------------------
+
+
 function [kontur] = groove_threeroll_flat(ir, r2, s)
 ---
 This function generates an xy-contour of the threeroll flat groove with the given parameters inner radius ir, transition radius r2 and roll gap s
+
+
 
 function [kontur] = groove_threeroll_singleradius(d, r1, r2, s)
 ---
 This function generates an xy-contour of the threeroll non-opened single radius groove with the given parameters inner radius ir, transition radius r2 and roll gap s
 
+
+
 function [kontur] = groove_threeroll_singleradius(d, r1, r2, s)
----
 This function generates an xy-contour of the threeroll non-opened single radius groove with the given parameters inner diameter d, main radius r1, transition radius r2 and roll gap s
 
+
+
 function [kontur] = groove_threeroll_singleradius_opened(ir, r1, r2, alpha, s)
----
 This function generates an xy-contour of the threeroll opened single radius groove with the given parameters inner radius ir, main radius r1, transition radius r2, groove angle alpha, and roll gap s
+
 
 
 B) Calculation of single grooves
 ----------------------------------
 
 function calc_single_groove(d0,epsa,dnom,ff)
----
 Calculates a single radius non-opened groove for the entry diameter d0, the cross-sectionsl reduction epsa, the nominal roll diameter dnom and the filling ratio ff
 
 function calc_single_groove_opened(d0,epsa,dnom,ff,ecc)
----
 Calculates a single radius opened groove for the entry diameter d0, the cross-sectionsl reduction epsa, the nominal roll diameter dnom, the filling ratio ff and the eccentricity ratio ecc
 
 function calc_single_groove_flat(d0,epsa,dnom)
----
 Calculates a flat groove for the entry diameter d0, the cross-sectionsl reduction epsa and the nominal roll diameter dnom. Note that not both filling ratio AND area redution can be controlled as this simple groove type does not provide sufficient degrees of freedom.
 
 C) Calculation of groove sequences
